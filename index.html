@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gate Lab - a tiny digital logic playground</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,'Segoe UI',Roboto,sans-serif; background:#0d1410; color:#e8f5ec; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { max-width:520px; text-align:center; }
+  h1 { font-size:34px; margin-bottom:10px; }
+  .demo { display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
+  .d { padding:8px 14px; border-radius:8px; background:#1c3a26; border:2px solid #2e5a3c; font-weight:700; font-size:14px; }
+  .d.lit { border-color:#4ade80; color:#4ade80; }
+  p { color:#9fd4af; line-height:1.65; margin-bottom:20px; }
+  a.play { display:inline-block; background:#4ade80; color:#0d1410; font-weight:700; padding:13px 34px; border-radius:999px; text-decoration:none; font-size:16px; }
+  .foot { margin-top:22px; color:#4a6353; font-size:11.5px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>&#9889; Gate Lab</h1>
+  <div class="demo"><div class="d">AND</div><div class="d lit">XOR</div><div class="d">NOR</div></div>
+  <p>A pocket digital-logic playground. Three switches feed three gates feed one lamp: click switches and gates to rewire the circuit live, then take Challenge mode - one gate is hidden, and you pick the type that makes the lamp hit its target. Six gate types, streaks, best saved.</p>
+  <a class="play" href="app.html">Open Gate Lab</a>
+  <div class="foot">Built by the hourly app factory - <a style="color:#4ade80" href="https://github.com/iLanis-agent/gate-lab">source</a></div>
+</div>
+</body>
+</html>
