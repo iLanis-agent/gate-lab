@@ -20,14 +20,17 @@ function evalCircuit(types, inputs){
 /* challenge: random types/inputs, hide slot; correct answer = any type reproducing target out */
 function makeChallenge(rng){
   rng = rng || Math.random;
-  var types = [0,1,2].map(function(){ return GATE_NAMES[Math.floor(rng()*GATE_NAMES.length)]; });
-  var inputs = [0,1,2].map(function(){ return rng() < 0.5; });
-  var slot = Math.floor(rng()*3);
-  var target = evalCircuit(types, inputs).out;
-  var accepts = GATE_NAMES.filter(function(t){
-    var trial = types.slice(); trial[slot] = t;
-    return evalCircuit(trial, inputs).out === target;
-  });
+  for (var tries=0; tries<30; tries++){
+    var types = [0,1,2].map(function(){ return GATE_NAMES[Math.floor(rng()*GATE_NAMES.length)]; });
+    var inputs = [0,1,2].map(function(){ return rng() < 0.5; });
+    var slot = Math.floor(rng()*3);
+    var target = evalCircuit(types, inputs).out;
+    var accepts = GATE_NAMES.filter(function(t){
+      var trial = types.slice(); trial[slot] = t;
+      return evalCircuit(trial, inputs).out === target;
+    });
+    if (accepts.length <= 3) return { types:types, inputs:inputs, slot:slot, target:target, accepts:accepts };
+  }
   return { types:types, inputs:inputs, slot:slot, target:target, accepts:accepts };
 }
 function answerCorrect(ch, guess){ return ch.accepts.indexOf(guess) !== -1; }
